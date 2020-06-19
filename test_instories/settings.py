@@ -25,7 +25,9 @@ SECRET_KEY = '*#d^rp7#^@08(_gtvmy(7q4mw%1@&b=0o0%65&l%r)qs-tbv32'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*'
+    'localhost',
+    '127.0.0.1',
+    'https://testinstories.herokuapp.com/'
 ]
 
 # Application definition
@@ -127,3 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
