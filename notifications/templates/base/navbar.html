@@ -1,0 +1,12 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+
+{% block nav_links %}
+    <li>
+        <a href="{% url 'push_list' %}">
+            <i class="fa fa-edit"></i> <span>Pushes</span>
+        </a>
+        <a href="{% url 'option_list' %}">
+            <i class="fa fa-edit"></i> <span>Options</span>
+        </a>
+    </li>
+{% endblock nav_links %}

@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {{ form.media }}
+    <h1>{{ title }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="{% url 'option_create' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.name.id_for_label }}">Название опции: </label>
+                    {{ form.name }}
+                </div>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </form>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <a class="btn btn-info" href="{% url 'option_list' %}">Назад в список</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

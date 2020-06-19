@@ -1,0 +1,6 @@
+django==3.0.7
+supervisor==4.2.0
+gunicorn==20.0.4
+psycopg2
+django-adminlte2==0.4.3
+django-tempus-dominus==5.1.2.13

@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="{{ push.title.id_for_label }}">Заголовок уведомления: </label><br>
+                {{ push.title }}
+            </div>
+            <div class="form-group">
+                <label for="{{ push.text.id_for_label }}">Текст уведомления: </label><br>
+                {{ push.text }}
+            </div>
+            <div class="form-group">
+                <label for="{{ push.created_at.id_for_label }}">Дата создания: </label><br>
+                {{ push.created_at|date:'d.m.Y H:s' }}
+            </div>
+            <div class="form-group">
+                <label for="{{ push.updated_at.id_for_label }}">Дата последнего обновления: </label><br>
+                {{ push.updated_at|date:'d.m.Y H:s' }}
+            </div>
+            <div class="form-group">
+                <label for="{{ push.pushed_at.id_for_label }}">Дата отправки: </label><br>
+                {{ push.pushed_at|date:'d.m.Y H:s' }}
+            </div>
+            <div class="form-group">
+                <label for="{{ push.is_sent.id_for_label }}">Отправлен: </label><br>
+                {{ push.is_sent|yesno:"Да,Нет" }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <a class="btn btn-info" href="{% url 'push_list' %}">Назад в список</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

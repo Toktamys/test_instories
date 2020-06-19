@@ -1,0 +1,24 @@
+version: '3'
+services:
+  instories_db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    env_file: ./dockerfiles/.env
+    volumes:
+      - instories_postgres_data:/var/lib/postgresql/data/
+
+  instories_project:
+    build: ./
+    env_file: ./dockerfiles/.env
+    working_dir: /var/www/app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/var/www/app
+    links:
+      - instories_db
+    ports:
+      - "8000:8000"
+
+volumes:
+  instories_postgres_data:
