@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -83,15 +85,9 @@ WSGI_APPLICATION = 'test_instories.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+db_url = os.environ.get('DATABASE_URL')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instories_test',
-        'USER': 'postgres',
-        'HOST': 'instories_db',
-        'PORT': 5432,
-        'PASSWORD': '123'
-    }
+    'default': dj_database_url.parse(db_url, conn_max_age=600)
 }
 
 # Password validation
